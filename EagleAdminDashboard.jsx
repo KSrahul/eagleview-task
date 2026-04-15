@@ -454,21 +454,24 @@ export const CourseAdminDashboard = () => {
                                         <h2 style={{ margin: 0, fontWeight: 700 }}>{selectedCourse.title}</h2>
                                         <div style={{ color: '#6b7280', marginTop: '6px', fontSize: '14px' }}>{selectedCourse.category} • {selectedCourse.instructor}</div>
                                     </div>
-                                    <div style={{ display: 'flex', gap: '8px' }}>
-                                        <button
-                                            className="btn btn-primary"
-                                            disabled={selectedCourse.status === 'published'}
-                                            onClick={() => handleStatusChange('published')}
-                                        >
-                                            Publish
-                                        </button>
-                                        <button
-                                            className="btn btn-outline"
-                                            disabled={selectedCourse.status === 'archived'}
-                                            onClick={() => handleStatusChange('archived')}
-                                        >
-                                            Archive
-                                        </button>
+                                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+                                        <div style={{ display: 'flex', gap: '8px' }}>
+                                            <button
+                                                className="btn btn-primary"
+                                                disabled={selectedCourse.status === 'published'}
+                                                onClick={() => handleStatusChange('published')}
+                                            >
+                                                Publish
+                                            </button>
+                                            <button
+                                                className="btn btn-outline"
+                                                disabled={selectedCourse.status === 'archived'}
+                                                onClick={() => handleStatusChange('archived')}
+                                            >
+                                                Archive
+                                            </button>
+                                        </div>
+                                        {errors.action && <div style={{ color: '#ef4444', fontSize: '13px', marginTop: '6px', fontWeight: 500 }}>{errors.action}</div>}
                                     </div>
                                 </div>
 
@@ -529,7 +532,6 @@ export const CourseAdminDashboard = () => {
                                         <div className="enroll-controls">
                                             <h3 style={{ margin: 0 }}>Enrollments ({enrollments.length})</h3>
                                             <div style={{ display: 'flex', gap: '8px' }}>
-                                                {errors.action && <div style={{ color: '#ef4444', fontSize: '12px', display: 'flex', alignItems: 'center', marginRight: '8px' }}>{errors.action}</div>}
                                                 <button className="btn btn-outline" disabled={selectedStudents.size === 0 || loading.action} onClick={() => handleBulkAction('approve')}>Approve</button>
                                                 <button className="btn btn-outline" disabled={selectedStudents.size === 0 || loading.action} onClick={() => handleBulkAction('drop')}>Drop</button>
                                             </div>
