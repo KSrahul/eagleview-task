@@ -198,7 +198,7 @@ export const CourseAdminDashboard = () => {
         let ignore = false;
         const load = async () => {
             setLoading(prev => ({ ...prev, detail: true }));
-            setErrors(prev => ({ ...prev, detail: null }));
+            setErrors(prev => ({ ...prev, detail: null, action: null }));
             setEnrollments([]);
             setAnalytics(null);
             try {
@@ -356,7 +356,7 @@ export const CourseAdminDashboard = () => {
 
             <div className="dashboard-container">
                 <header className="header">
-                    <h1>Course Admin Dashboard</h1>
+                    <h1>LearnHub Admin Dashboard</h1>
                     <button
                         onClick={handleUndo}
                         disabled={undoStack.length === 0}
