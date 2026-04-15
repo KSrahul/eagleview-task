@@ -340,8 +340,8 @@ export const CourseAdminDashboard = () => {
                                 type="text"
                                 className="header-search-input"
                                 placeholder="Search"
-                                value={query}
-                                onChange={(e) => setQuery(e.target.value)}
+                            // value={query}
+                            // onChange={(e) => setQuery(e.target.value)}
                             />
                             <svg className="header-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                         </div>
@@ -356,7 +356,7 @@ export const CourseAdminDashboard = () => {
 
             <div className="dashboard-container">
                 <header className="header">
-                    <h1>LearnHub Course Admin</h1>
+                    <h1>Course Admin Dashboard</h1>
                     <button
                         onClick={handleUndo}
                         disabled={undoStack.length === 0}
@@ -383,7 +383,7 @@ export const CourseAdminDashboard = () => {
                                 value={statusFilter}
                                 onChange={(e) => setStatusFilter(e.target.value)}
                             >
-                                <option value="">All Statuses</option>
+                                <option value="">All Status</option>
                                 <option value="draft">Draft</option>
                                 <option value="published">Published</option>
                                 <option value="archived">Archived</option>
@@ -442,8 +442,10 @@ export const CourseAdminDashboard = () => {
                     {/* Detail View */}
                     <main className="card">
                         {!selectedCourse ? (
-                            <div style={{ padding: '100px', textAlign: 'center', color: '#888' }}>
-                                Select a course to see metrics and enrollments
+                            <div className="empty-state">
+                                <img src="./empty_state.png" alt="Empty State" />
+                                <h3>Select a Course</h3>
+                                <p>Click on any course in the sidebar to view detailed metrics, enrollments, and manage status.</p>
                             </div>
                         ) : (
                             <div>
